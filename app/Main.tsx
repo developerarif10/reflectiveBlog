@@ -1,5 +1,6 @@
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
+import RotateTextPreview from '@/components/ui/text-rotate-demo'
 import siteMetadata from '@/data/siteMetadata'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { formatDate } from 'pliny/utils/formatDate'
@@ -11,8 +12,22 @@ export default function Home({ posts }) {
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
-            Latest
+          <div className="flex flex-wrap items-center sm:space-x-4">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-shadow-sm sm:text-2xl sm:leading-10 md:text-4xl md:leading-14 dark:text-gray-100">
+              Arifur Rahman
+            </h1>
+            <div className="mt-2">
+              <RotateTextPreview />
+            </div>
+          </div>
+          <p className="text-sm leading-6 text-gray-500 lg:text-lg dark:text-gray-500">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum <br /> veritatis impedit
+            alias odio facilis? Eius tempore voluptatibus
+          </p>
+        </div>
+        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+          <h1 className="text-2xl leading-9 font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-10 md:text-4xl md:leading-14 dark:text-gray-100">
+            Sharing my learning journey
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
