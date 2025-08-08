@@ -7,7 +7,8 @@
 /* Core theme configuration */
 @theme {
   /* Font families */
-  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+  --font-sans:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* Colors */
@@ -35,6 +36,26 @@
   --color-gray-800: oklch(0.278 0.033 256.848);
   --color-gray-900: oklch(0.21 0.034 264.665);
   --color-gray-950: oklch(0.13 0.028 261.692);
+
+  /* Additional colors from image */
+  --color-white: #ffffff;
+  --color-light-gray: #f9f9f9;
+  --color-medium-gray: #929292;
+  --color-dark-gray: #3a3a3c;
+  --color-black: #1b1b1b;
+  --color-purple: #b6a4fd;
+  --color-blue: #354aff;
+  --color-red: #ff4455;
+
+  /* Alternative color naming following Tailwind conventions */
+  --color-custom-50: #ffffff;
+  --color-custom-100: #f9f9f9;
+  --color-custom-200: #929292;
+  --color-custom-300: #3a3a3c;
+  --color-custom-400: #1b1b1b;
+  --color-custom-purple: #b6a4fd;
+  --color-custom-blue: #354aff;
+  --color-custom-red: #ff4455;
 
   /* Line heights */
   --line-height-11: 2.75rem;
