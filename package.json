@@ -22,6 +22,7 @@
     "gray-matter": "^4.0.3",
     "hast-util-from-html-isomorphic": "^2.0.0",
     "image-size": "^2.0.1",
+    "lucide-react": "^0.539.0",
     "motion": "^12.23.12",
     "next": "^15.2.4",
     "next-contentlayer2": "^0.5.5",

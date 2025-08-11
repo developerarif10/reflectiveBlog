@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="mt-12 border-t border-slate-800 pt-8 text-center text-slate-800">
           <div className="flex flex-wrap items-center justify-center gap-5 lg:justify-between">
-            <div>
+            <div className="dark:text-[#737373]">
               Arifur Rahman • © ReflectiveBlog All Right Reserved {` ${new Date().getFullYear()}`}
             </div>
             <div className="flex space-x-4">
