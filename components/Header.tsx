@@ -1,53 +1,98 @@
+'use client'
+
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
 import siteMetadata from '@/data/siteMetadata'
+import { useState } from 'react'
 import Link from './Link'
-import MobileNav from './MobileNav'
 import SearchButton from './SearchButton'
 import ThemeSwitch from './ThemeSwitch'
 
-const Header = () => {
-  let headerClass = 'flex items-center w-full bg-[#F9F9F9] dark:bg-[#181818] justify-between py-10'
-  if (siteMetadata.stickyNav) {
-    headerClass += ' sticky top-0 z-50'
-  }
+// Import navbar components from resizable-navbar
+import {
+  MobileNav,
+  MobileNavHeader,
+  MobileNavMenu,
+  MobileNavToggle,
+  Navbar,
+  NavbarLogo,
+  NavBody,
+  NavItems,
+} from '@/components/ui/resizable-navbar'
+
+export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Convert your headerNavLinks to resizable-navbar format
+  const navItems = headerNavLinks
+    .filter((link) => link.href !== '/')
+    .map((link) => ({
+      name: link.title,
+      link: link.href,
+    }))
 
   return (
-    <header className={headerClass}>
-      <Link href="/" aria-label={siteMetadata.headerTitle}>
-        <div className="flex items-center justify-between">
-          <div className="mr-3">
-            <Logo />
+    <header>
+      <Navbar className={siteMetadata.stickyNav ? 'sticky top-0 z-50' : ''}>
+        {/* Desktop Navigation */}
+        <NavBody>
+          {/* Replace NavbarLogo with your actual logo + title */}
+          <Link
+            href="/"
+            aria-label={siteMetadata.headerTitle}
+            className="flex items-center space-x-2"
+          >
+            <Logo className="h-8 w-8" />
+            {typeof siteMetadata.headerTitle === 'string' ? (
+              <span className="text-lg font-semibold">{siteMetadata.headerTitle}</span>
+            ) : (
+              siteMetadata.headerTitle
+            )}
+          </Link>
+
+          {/* Navigation Links */}
+          <NavItems
+            items={navItems}
+            onItemClick={() => setIsMobileMenuOpen(false)}
+            className="hidden lg:flex"
+          />
+
+          {/* Right Side Actions */}
+          <div className="flex items-center gap-4">
+            <SearchButton />
+            <ThemeSwitch />
           </div>
-          {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="hidden h-6 text-2xl font-semibold sm:block">
-              {siteMetadata.headerTitle}
-            </div>
-          ) : (
-            siteMetadata.headerTitle
-          )}
-        </div>
-      </Link>
-      <div className="flex items-center space-x-4 leading-5 sm:-mr-6 sm:space-x-6">
-        <div className="no-scrollbar hidden max-w-40 items-center gap-x-4 overflow-x-auto sm:flex md:max-w-72 lg:max-w-96">
-          {headerNavLinks
-            .filter((link) => link.href !== '/')
-            .map((link) => (
+        </NavBody>
+
+        {/* Mobile Navigation */}
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </MobileNavHeader>
+
+          <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
+            {navItems.map((item, idx) => (
               <Link
-                key={link.title}
-                href={link.href}
-                className="hover:text-primary-500 dark:hover:text-primary-400 m-1 font-medium text-gray-900 dark:text-gray-100"
+                key={`mobile-link-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="relative block text-lg font-medium text-neutral-600 dark:text-neutral-300"
               >
-                {link.title}
+                {item.name}
               </Link>
             ))}
-        </div>
-        <SearchButton />
-        <ThemeSwitch />
-        <MobileNav />
-      </div>
+
+            <div className="mt-4 flex w-full items-center gap-4">
+              <SearchButton />
+              <ThemeSwitch />
+            </div>
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
     </header>
   )
 }
-
-export default Header

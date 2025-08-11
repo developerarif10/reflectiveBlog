@@ -20,7 +20,7 @@ export default function Home({ posts }) {
   return (
     <>
       <div>
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+        <div className="space-y-2 pt-20 pb-8 md:space-y-5">
           <div className="flex flex-wrap items-center sm:space-x-4">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-shadow-sm sm:text-2xl sm:leading-10 md:text-4xl md:leading-14 dark:text-gray-100">
               Arifur Rahman
