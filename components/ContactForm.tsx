@@ -45,10 +45,10 @@ export default function ContactForm() {
               id="name"
               name="name"
               type="text"
-              placeholder="Tyler Durden"
+              placeholder="Walter White"
               value={formData.name}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+              className="mt-1 block w-full border border-gray-300 px-3 py-2 text-gray-900 focus:ring-2 focus:ring-black focus:outline-none dark:border-gray-700 dark:bg-[#181818] dark:text-white dark:focus:ring-white"
             />
           </div>
 
@@ -64,10 +64,10 @@ export default function ContactForm() {
               id="email"
               name="email"
               type="email"
-              placeholder="tyler@projectmayhem.com"
+              placeholder="walter@projectmayhem.com"
               value={formData.email}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+              className="dark:bg-transperant mt-1 block w-full border border-gray-300 px-3 py-2 text-gray-900 focus:ring-2 focus:ring-black focus:outline-none dark:border-gray-700 dark:bg-[#181818] dark:text-white dark:focus:ring-white"
             />
           </div>
 
@@ -86,14 +86,14 @@ export default function ContactForm() {
               placeholder="You're crazy good, never change."
               value={formData.message}
               onChange={handleChange}
-              className="mt-1 block w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+              className="mt-1 block w-full border border-gray-300 px-3 py-2 text-gray-900 focus:ring-2 focus:ring-black focus:outline-none dark:border-gray-700 dark:bg-[#181818] dark:text-white dark:focus:ring-white"
             ></textarea>
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full rounded-md bg-gray-800 py-2 font-medium text-white shadow transition hover:opacity-90 dark:bg-gray-200 dark:text-gray-900"
+            className="w-full cursor-pointer bg-black py-2 font-medium text-white shadow transition hover:opacity-90 dark:bg-gray-200 dark:text-gray-900"
           >
             Send message
           </button>

@@ -1,7 +1,6 @@
 'use client'
 
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
 import siteMetadata from '@/data/siteMetadata'
 import { useState } from 'react'
 import Link from './Link'
@@ -42,9 +41,12 @@ export default function Header() {
             aria-label={siteMetadata.headerTitle}
             className="flex items-center space-x-2"
           >
-            <Logo className="h-8 w-8" />
+            {/* <Logo /> */}
             {typeof siteMetadata.headerTitle === 'string' ? (
-              <span className="text-lg font-semibold">{siteMetadata.headerTitle}</span>
+              <span className="text-xl font-semibold">
+                {siteMetadata.headerTitle}
+                <span className="font-extrabold text-[#ff933f]">.</span>
+              </span>
             ) : (
               siteMetadata.headerTitle
             )}
